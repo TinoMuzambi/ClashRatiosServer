@@ -1,0 +1,15 @@
+{
+	"name": "clashratios",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"start": "yarn run tsc && yarn run start"
+	},
+	"keywords": [],
+	"author": "Tino Muzambi",
+	"license": "ISC",
+	"devDependencies": {
+		"typescript": "^4.2.4"
+	}
+}
