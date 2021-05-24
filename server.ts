@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import request from "request";
 import { Request, Response } from "express";
+import { CoreOptions, RequestCallback } from "request";
 
 // Setup
 const app = express();
@@ -16,20 +17,20 @@ app.use(cors());
 app.get("/api/player/:id", (req: Request, res: Response) => {
 	const baseURL = "https://api.clashofclans.com/v1/players/%23" + req.params.id;
 
-	const options = {
+	const options: CoreOptions = {
 		proxy: process.env.HTTP_PROXY,
-		url: baseURL,
+		baseUrl: baseURL,
 		headers: {
 			"content-type": "application/json; charset=utf-8",
 			Authorization: "Bearer " + process.env.CLASH_KEY,
 		},
 	};
 
-	const cb = (error: any, response: any, body: any) => {
+	const cb: RequestCallback = (error: Error, response: any, body: any) => {
 		if (!error && response.statusCode == 200) {
 			res.status(200).send(body);
 		} else {
-			console.log(error);
+			console.error(error);
 			res.status(500).send("Error yo");
 		}
 	};
@@ -40,20 +41,20 @@ app.get("/api/player/:id", (req: Request, res: Response) => {
 app.get("/api/clan/:id", (req: Request, res: Response) => {
 	const baseURL = "https://api.clashofclans.com/v1/clans/%23" + req.params.id;
 
-	const options = {
+	const options: CoreOptions = {
 		proxy: process.env.HTTP_PROXY,
-		url: baseURL,
+		baseUrl: baseURL,
 		headers: {
 			"content-type": "application/json; charset=utf-8",
 			Authorization: "Bearer " + process.env.CLASH_KEY,
 		},
 	};
 
-	const cb = (error: any, response: any, body: any) => {
+	const cb: RequestCallback = (error: any, response: any, body: any) => {
 		if (!error && response.statusCode == 200) {
 			res.status(200).send(body);
 		} else {
-			console.log(error);
+			console.error(error);
 			res.status(500).send("Error yo");
 		}
 	};
