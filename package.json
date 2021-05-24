@@ -4,7 +4,10 @@
 	"description": "",
 	"main": "server.js",
 	"scripts": {
-		"start": "yarn run tsc && yarn run start"
+		"dev": "nodemon server.js",
+		"build": "node server.js",
+		"start": "yarn run tsc && yarn run start",
+		"devstart": "yarn run tsc && yarn run dev"
 	},
 	"keywords": [],
 	"author": "Tino Muzambi",
