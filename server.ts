@@ -1,9 +1,7 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import request from "request";
-import { Request, Response } from "express";
-import { CoreOptions, RequestCallback } from "request";
+import request, { CoreOptions, RequestCallback } from "request";
 
 // Setup
 const app = express();
