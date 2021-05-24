@@ -25,7 +25,7 @@ app.get("/api/player/:id", (req: Request, res: Response) => {
 		},
 	};
 
-	const cb = (error, response, body) => {
+	const cb = (error: any, response: any, body: any) => {
 		if (!error && response.statusCode == 200) {
 			res.status(200).send(body);
 		} else {
@@ -49,7 +49,7 @@ app.get("/api/clan/:id", (req: Request, res: Response) => {
 		},
 	};
 
-	const cb = (error, response, body) => {
+	const cb = (error: any, response: any, body: any) => {
 		if (!error && response.statusCode == 200) {
 			res.status(200).send(body);
 		} else {
