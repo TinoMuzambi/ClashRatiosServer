@@ -1,6 +1,9 @@
 {
 	"name": "clashratios",
 	"version": "1.0.0",
+  "engines": {
+    "node": "16.x","yarn": "1.22.x"
+  },
 	"description": "",
 	"main": "server.js",
 	"scripts": {
