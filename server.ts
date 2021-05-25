@@ -4,8 +4,6 @@ import dotenv from "dotenv";
 import request, {
 	CoreOptions,
 	RequestCallback,
-	RequiredUriUrl,
-	UrlOptions,
 	Response as ReqResponse,
 } from "request";
 
@@ -22,12 +20,9 @@ app.get("/api/player/:id", (req: Request, res: Response) => {
 	const baseURL: string =
 		"https://api.clashofclans.com/v1/players/%23" + req.params.id;
 
-	const uri: UrlOptions = { url: baseURL };
-	const url: RequiredUriUrl = uri;
-
 	const options: CoreOptions = {
 		proxy: process.env.HTTP_PROXY,
-		baseUrl: baseURL,
+
 		headers: {
 			"content-type": "application/json; charset=utf-8",
 			Authorization: "Bearer " + process.env.CLASH_KEY,
@@ -47,15 +42,12 @@ app.get("/api/player/:id", (req: Request, res: Response) => {
 		}
 	};
 
-	request(options && url, cb);
+	request(baseURL, options, cb);
 });
 
 app.get("/api/clan/:id", (req: Request, res: Response) => {
 	const baseURL: string =
 		"https://api.clashofclans.com/v1/clans/%23" + req.params.id;
-
-	const uri: UrlOptions = { url: baseURL };
-	const url: RequiredUriUrl = uri;
 
 	const options: CoreOptions = {
 		proxy: process.env.HTTP_PROXY,
@@ -79,7 +71,7 @@ app.get("/api/clan/:id", (req: Request, res: Response) => {
 		}
 	};
 
-	request(options && url, cb);
+	request(baseURL, options, cb);
 });
 
 app.get("/", (req: Request, res: Response) =>
