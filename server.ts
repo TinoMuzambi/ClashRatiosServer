@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express, { Request, Response, Express } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import request, {
@@ -10,7 +10,7 @@ import request, {
 } from "request";
 
 // Setup
-const app = express();
+const app: Express = express();
 dotenv.config();
 
 // Middlewares
