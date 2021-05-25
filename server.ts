@@ -1,7 +1,12 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import request, { CoreOptions, RequestCallback } from "request";
+import request, {
+	CoreOptions,
+	RequestCallback,
+	RequiredUriUrl,
+	UrlOptions,
+} from "request";
 
 // Setup
 const app = express();
@@ -14,6 +19,9 @@ app.use(cors());
 // Routes
 app.get("/api/player/:id", (req: Request, res: Response) => {
 	const baseURL = "https://api.clashofclans.com/v1/players/%23" + req.params.id;
+
+	const uri: UrlOptions = { url: baseURL };
+	const url: RequiredUriUrl = uri;
 
 	const options: CoreOptions = {
 		proxy: process.env.HTTP_PROXY,
@@ -33,11 +41,14 @@ app.get("/api/player/:id", (req: Request, res: Response) => {
 		}
 	};
 
-	request(options, cb);
+	request(options && url, cb);
 });
 
 app.get("/api/clan/:id", (req: Request, res: Response) => {
 	const baseURL = "https://api.clashofclans.com/v1/clans/%23" + req.params.id;
+
+	const uri: UrlOptions = { url: baseURL };
+	const url: RequiredUriUrl = uri;
 
 	const options: CoreOptions = {
 		proxy: process.env.HTTP_PROXY,
@@ -57,7 +68,7 @@ app.get("/api/clan/:id", (req: Request, res: Response) => {
 		}
 	};
 
-	request(options, cb);
+	request(options && url, cb);
 });
 
 app.get("/", (req: Request, res: Response) =>
