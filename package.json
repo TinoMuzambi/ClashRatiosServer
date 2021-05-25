@@ -1,15 +1,16 @@
 {
 	"name": "clashratios",
 	"version": "1.0.0",
-  "engines": {
-    "node": "16.x","yarn": "1.22.x"
-  },
+	"engines": {
+		"node": "16.x",
+		"yarn": "1.22.x"
+	},
 	"description": "",
 	"main": "server.js",
 	"scripts": {
 		"dev": "nodemon server.js",
-		"build": "node server.js",
-		"start": "yarn run tsc && yarn run build",
+		"postinstall": "tsc",
+		"start": "node server.js",
 		"devstart": "yarn run tsc && yarn run dev"
 	},
 	"keywords": [],
