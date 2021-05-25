@@ -4,7 +4,7 @@ TypeScript server for ClashRatios with Express. The server handles making reques
 
 ## Front-end
 
-The front-end code is available at this [URL](https://github.com/TinoMuzambi).
+The front-end code is available at this [URL](https://github.com/TinoMuzambi/ClashRatios).
 
 ## Deployment
 
