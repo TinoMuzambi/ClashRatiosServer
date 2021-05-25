@@ -39,7 +39,7 @@ app.get("/api/player/:id", (req: Request, res: Response) => {
 			res.status(200).send({
 				tag: JSONBody.tag,
 				name: JSONBody.name,
-				explevel: JSONBody.explevel,
+				xp: JSONBody.expLevel,
 				trophies: JSONBody.trophies,
 				donations: JSONBody.donations,
 				donationsReceived: JSONBody.donationsReceived,
