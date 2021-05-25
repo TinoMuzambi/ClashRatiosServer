@@ -72,7 +72,7 @@ app.get("/api/clan/:id", (req: Request, res: Response) => {
 });
 
 app.get("/", (req: Request, res: Response) =>
-	res.status(200).send("Welcome to the Clash backend.")
+	res.status(200).send("Welcome to the ClashRatios backend.")
 );
 
 // Listen
