@@ -6,6 +6,7 @@ import request, {
 	RequestCallback,
 	RequiredUriUrl,
 	UrlOptions,
+	Response as ReqResponse,
 } from "request";
 
 // Setup
@@ -32,12 +33,16 @@ app.get("/api/player/:id", (req: Request, res: Response) => {
 		},
 	};
 
-	const cb: RequestCallback = (error: Error, response: any, body: any) => {
+	const cb: RequestCallback = (
+		error: Error,
+		response: ReqResponse,
+		body: any
+	) => {
 		if (!error && response.statusCode == 200) {
 			res.status(200).send(body);
 		} else {
 			console.error(error);
-			res.status(500).send("Error yo");
+			res.status(500).send(response.statusCode);
 		}
 	};
 
@@ -59,7 +64,11 @@ app.get("/api/clan/:id", (req: Request, res: Response) => {
 		},
 	};
 
-	const cb: RequestCallback = (error: any, response: any, body: any) => {
+	const cb: RequestCallback = (
+		error: any,
+		response: ReqResponse,
+		body: any
+	) => {
 		if (!error && response.statusCode == 200) {
 			res.status(200).send(body);
 		} else {
