@@ -39,7 +39,7 @@ app.get("/api/player/:id", (req: Request, res: Response) => {
 		response: ReqResponse,
 		body: any
 	) => {
-		if (!error && response.statusCode == 200) {
+		if (!error && response.statusCode === 200) {
 			res.status(200).send(body);
 		} else {
 			console.error(error);
@@ -71,7 +71,7 @@ app.get("/api/clan/:id", (req: Request, res: Response) => {
 		response: ReqResponse,
 		body: any
 	) => {
-		if (!error && response.statusCode == 200) {
+		if (!error && response.statusCode === 200) {
 			res.status(200).send(body);
 		} else {
 			console.error(error);
