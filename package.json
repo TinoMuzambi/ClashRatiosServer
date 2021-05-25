@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "nodemon server.js",
 		"build": "node server.js",
-		"start": "yarn run tsc && yarn run start",
+		"start": "yarn run tsc && yarn run build",
 		"devstart": "yarn run tsc && yarn run dev"
 	},
 	"keywords": [],
