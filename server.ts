@@ -19,7 +19,8 @@ app.use(cors());
 
 // Routes
 app.get("/api/player/:id", (req: Request, res: Response) => {
-	const baseURL = "https://api.clashofclans.com/v1/players/%23" + req.params.id;
+	const baseURL: string =
+		"https://api.clashofclans.com/v1/players/%23" + req.params.id;
 
 	const uri: UrlOptions = { url: baseURL };
 	const url: RequiredUriUrl = uri;
@@ -50,7 +51,8 @@ app.get("/api/player/:id", (req: Request, res: Response) => {
 });
 
 app.get("/api/clan/:id", (req: Request, res: Response) => {
-	const baseURL = "https://api.clashofclans.com/v1/clans/%23" + req.params.id;
+	const baseURL: string =
+		"https://api.clashofclans.com/v1/clans/%23" + req.params.id;
 
 	const uri: UrlOptions = { url: baseURL };
 	const url: RequiredUriUrl = uri;
@@ -85,5 +87,5 @@ app.get("/", (req: Request, res: Response) =>
 );
 
 // Listen
-const PORT = process.env.PORT || 5000;
+const PORT: string | number = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
