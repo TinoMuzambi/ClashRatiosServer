@@ -35,39 +35,18 @@ app.get("/api/player/:id", (req: Request, res: Response) => {
 		body: any
 	) => {
 		if (!error && response.statusCode === 200) {
-			res.status(200).send(body);
+			const JSONBody = JSON.parse(body);
+			res.status(200).send({
+				tag: JSONBody.tag,
+				name: JSONBody.name,
+				explevel: JSONBody.explevel,
+				trophies: JSONBody.trophies,
+				donations: JSONBody.donations,
+				donationsReceived: JSONBody.donationsReceived,
+			});
 		} else {
 			console.error(error);
 			res.status(500).send(response.statusCode);
-		}
-	};
-
-	request(baseURL, options, cb);
-});
-
-app.get("/api/clan/:id", (req: Request, res: Response) => {
-	const baseURL: string =
-		"https://api.clashofclans.com/v1/clans/%23" + req.params.id;
-
-	const options: CoreOptions = {
-		proxy: process.env.HTTP_PROXY,
-		baseUrl: baseURL,
-		headers: {
-			"content-type": "application/json; charset=utf-8",
-			Authorization: "Bearer " + process.env.CLASH_KEY,
-		},
-	};
-
-	const cb: RequestCallback = (
-		error: any,
-		response: ReqResponse,
-		body: any
-	) => {
-		if (!error && response.statusCode === 200) {
-			res.status(200).send(body);
-		} else {
-			console.error(error);
-			res.status(500).send("Error yo");
 		}
 	};
 
